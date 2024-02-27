@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
  * desc: Hello World를 출력
  * run: --spring.batch.job.name=jobListenerJob
  */
-@Configuration
+// @Configuration
 @RequiredArgsConstructor
 public class JobListenerConfig {
 
