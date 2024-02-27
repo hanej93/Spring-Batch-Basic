@@ -1,4 +1,4 @@
-package com.example.SpringBatchTutorial.job;
+package com.example.SpringBatchTutorial.job.helloworld;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -17,7 +17,11 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import lombok.RequiredArgsConstructor;
 
-@Configuration
+/**
+ * desc: Hello World를 출력
+ * run: --spring.batch.job.name=helloWorldJob
+ */
+// @Configuration
 @RequiredArgsConstructor
 public class HelloWorldJobConfig {
 
