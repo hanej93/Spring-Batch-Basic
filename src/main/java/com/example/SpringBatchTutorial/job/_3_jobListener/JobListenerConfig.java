@@ -1,8 +1,7 @@
-package com.example.SpringBatchTutorial.job.helloworld;
+package com.example.SpringBatchTutorial.job._3_jobListener;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
-import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.job.builder.JobBuilder;
@@ -19,37 +18,39 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * desc: Hello World를 출력
- * run: --spring.batch.job.name=helloWorldJob
+ * run: --spring.batch.job.name=jobListenerJob
  */
-// @Configuration
+@Configuration
 @RequiredArgsConstructor
-public class HelloWorldJobConfig {
+public class JobListenerConfig {
 
 	private final JobRepository jobRepository;
 	private final PlatformTransactionManager transactionManager;
 
 	@Bean
-	public Job helloWorldJob() {
-		return new JobBuilder("helloWorldJob", jobRepository)
+	public Job jobListenerJob(Step jobListenerStep) {
+		return new JobBuilder("jobListenerJob", jobRepository)
 			.incrementer(new RunIdIncrementer())
-			.start(helloWorldStep())
+			.listener(new JobLoggerListener())
+			.start(jobListenerStep)
 			.build();
 	}
 
 	@Bean
 	@JobScope
-	public Step helloWorldStep() {
-		return new StepBuilder("helloWorldStep", jobRepository)
-			.tasklet(helloWorldTasklet(), transactionManager)
+	public Step jobListenerStep(Tasklet jobListenerTasklet) {
+		return new StepBuilder("jobListenerStep", jobRepository)
+			.tasklet(jobListenerTasklet, transactionManager)
 			.build();
 	}
 
 	@Bean
 	@StepScope
-	public Tasklet helloWorldTasklet() {
+	public Tasklet jobListenerTasklet() {
 		return (contribution, chunkContext) -> {
-			System.out.println("Hello World Spring Batch");
-			return RepeatStatus.FINISHED;
+			System.out.println("job listener Tasklet");
+			throw new RuntimeException();
+			// return RepeatStatus.FINISHED;
 		};
 	}
 }

@@ -1,4 +1,4 @@
-package com.example.SpringBatchTutorial.job.validatedParam;
+package com.example.SpringBatchTutorial.job._2_validatedParam;
 
 import java.util.Arrays;
 
@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import com.example.SpringBatchTutorial.job.validatedParam.validator.FileParamValidator;
+import com.example.SpringBatchTutorial.job._2_validatedParam.validator.FileParamValidator;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
  * desc: 파일 이름 파라미터 전달 그리고 검증
  * run: --spring.batch.job.name=validatedParamJob fileName=test.csv
  */
-@Configuration
+// @Configuration
 @RequiredArgsConstructor
 public class ValidatedParamJobConfig {
 
