@@ -11,6 +11,7 @@ import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ import lombok.RequiredArgsConstructor;
  * desc: Hello World를 출력
  * run: --spring.batch.job.name=helloWorldJob
  */
-// @Configuration
+@Configuration
 @RequiredArgsConstructor
 public class HelloWorldJobConfig {
 

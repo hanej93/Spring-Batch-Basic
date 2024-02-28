@@ -11,7 +11,8 @@ spring:
   batch:
     job:
       name: ${job.name:NONE}
-#    jdbc:
+      enabled: false
+  #    jdbc:
 #      initialize-schema: always
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/spring_batch

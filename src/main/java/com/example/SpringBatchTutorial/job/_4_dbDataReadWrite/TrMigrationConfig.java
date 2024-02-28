@@ -33,7 +33,7 @@ import lombok.RequiredArgsConstructor;
  * desc: 주문 테이블 -> 정산 테이블 데이터 이관
  * run: --spring.batch.job.name=trMigrationJob
  */
-@Configuration
+// @Configuration
 @RequiredArgsConstructor
 public class TrMigrationConfig {
 
