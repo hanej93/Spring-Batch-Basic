@@ -32,7 +32,7 @@ import lombok.RequiredArgsConstructor;
  * desc: 파일 읽고 쓰기
  * run: --spring.batch.job.name=fileReadWriteJob
  */
-@Configuration
+// @Configuration
 @RequiredArgsConstructor
 public class FileReadWriteConfig {
 
